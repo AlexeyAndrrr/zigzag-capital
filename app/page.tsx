@@ -84,8 +84,9 @@ function SignalCanvas() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const context = canvas.getContext("2d");
-    if (!context) return;
+    const contextOrNull = canvas.getContext("2d");
+    if (!contextOrNull) return;
+    const context: CanvasRenderingContext2D = contextOrNull;
 
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
